@@ -194,8 +194,12 @@ fbq('track','PageView');
 
   .guarantee{background:var(--gold-bg);border:1.5px solid var(--gold-lt);border-radius:20px;
     padding:28px 22px;text-align:center}
-  .seal{width:112px;margin:0 auto 16px}
-  .seal .ph{aspect-ratio:1/1;border-radius:50%;font-size:10.5px}
+  .seal{width:150px;margin:0 auto 16px;position:relative}
+  .seal-text{position:absolute;left:0;right:0;top:34%;text-align:center;color:#6B4A12;
+    text-shadow:0 1px 0 rgba(255,255,255,.4)}
+  .seal-text .n{display:block;font-size:38px;font-weight:800;line-height:1}
+  .seal-text .d{display:block;font-size:15px;font-weight:800;letter-spacing:.09em;margin-top:1px}
+  .seal-text .g{display:block;font-size:8.5px;font-weight:700;letter-spacing:.05em;margin-top:3px;opacity:.85}
 
   .faq{background:var(--paper);border:1px solid var(--line);border-radius:14px;margin-bottom:11px;overflow:hidden}
   .faq summary{padding:17px 20px;font-weight:700;font-size:15.5px;cursor:pointer;list-style:none;
@@ -229,6 +233,34 @@ fbq('track','PageView');
 
   footer{padding:36px 0 46px;text-align:center;font-size:12.5px;color:var(--muted)}
   footer p{margin-bottom:8px}
+
+  /* ================= MÓVIL =================
+     La mayoría de las visitas llegan desde el celular. En pantallas angostas,
+     grid2 y compare (2 columnas) achicaban demasiado las imágenes y el texto.
+     Aquí se pasa a 1 columna y se ajustan tamaños para que todo se lea bien
+     sin necesidad de hacer zoom. */
+  @media (max-width:640px){
+    .wrap{padding:0 16px}
+    h1{font-size:30px}
+    h2{font-size:24px}
+    .lead{font-size:17px}
+    .sec{padding:40px 0}
+
+    .grid2{grid-template-columns:1fr;gap:16px}
+    .compare{grid-template-columns:1fr;gap:16px}
+    .compare .side{padding:16px}
+
+    .bonus{padding:14px}
+    .bonus .thumb{flex:0 0 84px}
+
+    .sumfinal .big{font-size:38px}
+    .pricebox .now{font-size:38px}
+    .modal{padding:24px 18px}
+  }
+  @media (max-width:380px){
+    body{font-size:16.5px}
+    h1{font-size:27px}
+  }
 </style>
 </head>
 <body>
@@ -240,7 +272,7 @@ fbq('track','PageView');
 <section class="sec">
   <div class="wrap center">
     <div class="kicker">73 libros · 73 separadores</div>
-    <h1>Los 73 libros de la Biblia,<br><span class="gold">resumidos uno por uno</span></h1>
+    <h1>Los 73 libros de la Biblia<br><span class="gold">Resumidos uno por uno</span></h1>
     <p class="lead" style="margin-top:14px">
       Un separador para cada libro. Marca la página por delante y te explica por
       detrás quién lo escribió, cuándo y de qué trata.
@@ -274,12 +306,12 @@ fbq('track','PageView');
     <div class="compare">
       <div class="side">
         <div class="tag">Por delante</div>
-        <img src="img/img-02.jpg" alt="Frente del separador: arte sacra y nombre del libro" loading="lazy" class="ph-img r13" />
+        <img src="img/img-02.jpg" alt="Frente del separador: arte sacra y nombre del libro" loading="lazy" class="ph-img" style="aspect-ratio:567/1281" />
         <p>El nombre del libro y arte devocional. Lo que se ve al abrir la Biblia.</p>
       </div>
       <div class="side hl">
         <div class="tag">Por detrás</div>
-        <img src="img/img-03.jpg" alt="Reverso del separador: autor, época, tema y versículo clave" loading="lazy" class="ph-img r13" />
+        <img src="img/img-03.jpg" alt="Reverso del separador: autor, época, tema y versículo clave" loading="lazy" class="ph-img" style="aspect-ratio:567/915" />
         <p><strong>Autor, época, de qué trata, versículo clave y qué buscar al leer.</strong></p>
       </div>
     </div>
@@ -301,11 +333,11 @@ fbq('track','PageView');
     </div>
 
     <div class="grid2" style="margin-bottom:14px">
-      <img src="img/img-04.jpg" alt="Hoja impresa con separadores del Pentateuco" loading="lazy" class="ph-img r34" />
-      <img src="img/img-05.jpg" alt="Hoja impresa con separadores de los Evangelios" loading="lazy" class="ph-img r34" />
+      <img src="img/img-04.jpg" alt="Hoja impresa con separadores del Pentateuco" loading="lazy" class="ph-img" style="aspect-ratio:900/490" />
+      <img src="img/img-05.jpg" alt="Hoja impresa con separadores de los Evangelios" loading="lazy" class="ph-img" style="aspect-ratio:900/493" />
     </div>
     <div class="grid2">
-      <img src="img/img-06.jpg" alt="Hoja impresa con separadores de los Profetas" loading="lazy" class="ph-img r34" />
+      <img src="img/img-06.jpg" alt="Hoja impresa con separadores de los Profetas" loading="lazy" class="ph-img" style="aspect-ratio:900/490" />
       <img src="img/img-07.webp" alt="Separadores colocados dentro de una Biblia abierta" loading="lazy" class="ph-img r34" />
     </div>
   </div>
@@ -348,9 +380,7 @@ fbq('track','PageView');
         <div class="n" style="color:#6B1F3A">1</div></div>
     </div>
 
-    <div class="ph r52" style="margin-top:20px">
-      <span><b>[IMG-08 · 5:2]</b>Los 7 bloques de color en abanico, mostrando la paleta completa</span>
-    </div>
+    <img src="img/img-08.jpg" alt="Los 7 bloques de la Biblia, con arte y cantidad de libros de cada uno" loading="lazy" class="ph-img" style="aspect-ratio:900/1376;max-width:420px;margin:20px auto 0;display:block" />
 
     <p class="lead center" style="margin-top:18px;font-size:15px">
       46 del Antiguo Testamento y 27 del Nuevo. <strong>Los deuterocanónicos
@@ -381,9 +411,7 @@ fbq('track','PageView');
       <p class="lead" style="font-size:15px">Cada separador dentro de su libro. Cuando abras
       ese libro, el resumen ya está ahí.</p></div></div>
 
-    <div class="ph r52" style="margin-top:12px">
-      <span><b>[IMG-09 · 5:2]</b>Secuencia de 3 fotos: imprimir · recortar y doblar · colocar en la Biblia</span>
-    </div>
+    <img src="img/img-09.jpg" alt="Secuencia de 3 pasos: imprimir, recortar y colocar el separador en la Biblia" loading="lazy" class="ph-img" style="aspect-ratio:700/1475;max-width:320px;margin:12px auto 0;display:block" />
   </div>
 </section>
 
@@ -418,7 +446,7 @@ fbq('track','PageView');
     </div>
 
     <div class="bonus">
-      <div class="thumb"><div class="ph"><span><b>[IMG-10]</b>3:4</span></div></div>
+      <div class="thumb"><img src="img/img-10.jpg" alt="Pestañas indexadoras de colores en el borde de una Biblia" loading="lazy" class="ph-img" style="aspect-ratio:3/4" /></div>
       <div>
         <span class="tag">Regalo 1</span>
         <h3>Pestañas indexadoras de los 73 libros</h3>
@@ -429,7 +457,7 @@ fbq('track','PageView');
     </div>
 
     <div class="bonus">
-      <div class="thumb"><div class="ph"><span><b>[IMG-11]</b>3:4</span></div></div>
+      <div class="thumb"><img src="img/img-11.jpg" alt="Línea del tiempo bíblica impresa, con hitos ilustrados" loading="lazy" class="ph-img" style="aspect-ratio:3/4" /></div>
       <div>
         <span class="tag">Regalo 2</span>
         <h3>Línea del tiempo bíblica</h3>
@@ -440,7 +468,7 @@ fbq('track','PageView');
     </div>
 
     <div class="bonus">
-      <div class="thumb"><div class="ph"><span><b>[IMG-12]</b>3:4</span></div></div>
+      <div class="thumb"><img src="img/img-12.jpg" alt="Guía de lectura bíblica, portada del ebook" loading="lazy" class="ph-img" style="aspect-ratio:3/4" /></div>
       <div>
         <span class="tag">Regalo 3</span>
         <h3>Guía: por dónde empezar a leer la Biblia</h3>
@@ -451,7 +479,7 @@ fbq('track','PageView');
     </div>
 
     <div class="bonus">
-      <div class="thumb"><div class="ph"><span><b>[IMG-13]</b>3:4</span></div></div>
+      <div class="thumb"><img src="img/img-13.jpg" alt="Glosario de 100 términos bíblicos, portada del ebook" loading="lazy" class="ph-img" style="aspect-ratio:3/4" /></div>
       <div>
         <span class="tag">Regalo 4</span>
         <h3>Glosario de 100 términos bíblicos</h3>
@@ -491,9 +519,7 @@ fbq('track','PageView');
     <div class="plan">
       <h3>Paquete Básico</h3>
       <p class="sub">Los 73 separadores. Sin regalos.</p>
-      <div class="ph r169" style="margin-bottom:6px">
-        <span><b>[IMG-14 · 16:9]</b>Mockup solo del PDF de los 73 separadores</span>
-      </div>
+      <img src="img/img-14.jpg" alt="Solo el PDF de los 73 separadores, sin los regalos" loading="lazy" class="ph-img r169" style="margin-bottom:6px" />
       <ul>
         <li>Los 73 separadores, uno por cada libro</li>
         <li>Frente con arte y reverso con la ficha del libro</li>
@@ -519,7 +545,7 @@ fbq('track','PageView');
       <div class="badge">★ 9 de cada 10 eligen esta</div>
       <h3>Colección Completa</h3>
       <p class="sub">Todo lo del Básico + los 4 regalos.</p>
-      <img src="img/img-15.webp" alt="Todo el paquete completo: separadores y los 4 regalos" loading="lazy" class="ph-img r169" style="margin-bottom:6px" />
+      <img src="img/img-15.jpg" alt="Todo el paquete completo: separadores y los 4 regalos" loading="lazy" class="ph-img" style="aspect-ratio:1000/760;margin-bottom:6px" />
       <ul>
         <li>Los 73 separadores, uno por cada libro</li>
         <li class="gift">Pestañas indexadoras de los 73 libros</li>
@@ -544,7 +570,12 @@ fbq('track','PageView');
 <section class="sec">
   <div class="wrap">
     <div class="guarantee">
-      <div class="seal"><div class="ph"><span><b>[IMG-16]</b>Sello 7 días</span></div></div>
+      <div class="seal">
+        <img src="img/img-16.png" alt="Sello de garantía" loading="lazy" style="width:100%;display:block" />
+        <div class="seal-text">
+          <span class="n">7</span><span class="d">DÍAS</span><span class="g">DE GARANTÍA</span>
+        </div>
+      </div>
       <h2 style="font-size:23px">7 días de garantía</h2>
       <p class="lead" style="margin-top:10px;font-size:15px">
         Descarga todo, imprímelo y pruébalo con calma. Si en 7 días sientes que
