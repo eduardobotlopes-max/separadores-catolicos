@@ -38,15 +38,17 @@ fbq('track','PageView');
 
 <style>
   :root{
-    --cream:#FCF9F3;
-    --paper:#FFFFFF;
+    --cream:#FBF5E9;
+    --paper:#FFFDF8;
     --ink:#231C13;
     --muted:#6A5F52;
     --gold:#B0821A;
     --gold-lt:#E8D9A8;
-    --gold-bg:#FAF2DC;
+    --gold-bg:#F8EDD2;
     --navy:#1B2A47;
-    --line:rgba(35,28,19,.10);
+    --line:rgba(35,28,19,.14);
+    --sand:#EFE1C4;
+    --sand-dk:#D9C296;
     --green:#1B7A4B;
     --red:#9E2430;
   }
@@ -54,24 +56,24 @@ fbq('track','PageView');
   html{scroll-behavior:smooth}
   body{
     font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;
-    background:var(--cream);color:var(--ink);line-height:1.6;
+    background:var(--cream);color:var(--ink);line-height:1.65;font-size:17.5px;
     -webkit-font-smoothing:antialiased;
   }
   .wrap{max-width:680px;margin:0 auto;padding:0 20px}
   h1,h2,h3{line-height:1.18;font-weight:800;letter-spacing:-.02em}
-  h1{font-size:32px}
-  h2{font-size:26px}
+  h1{font-size:34px}
+  h2{font-size:27px}
   h3{font-size:18px}
   p{margin-bottom:14px}
   .sec{padding:54px 0}
-  .alt{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .alt{background:linear-gradient(180deg,#FFFDF8 0%,#FDF7EA 100%);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .dark{background:var(--navy);color:#fff}
   .dark .lead{color:rgba(255,255,255,.75)}
   .dark .kicker{color:#FFD86B}
   .center{text-align:center}
   .gold{color:var(--gold)}
   .kicker{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
-  .lead{font-size:17px;color:var(--muted)}
+  .lead{font-size:18.5px;color:var(--muted)}
 
   .topbar{background:var(--navy);color:#fff;text-align:center;padding:11px 16px;
     font-size:14px;font-weight:600;position:sticky;top:0;z-index:40}
@@ -95,8 +97,18 @@ fbq('track','PageView');
     font-family:inherit;transition:transform .12s ease}
   .btn:active{transform:scale(.98)}
   .btn-main{background:var(--green);color:#fff;box-shadow:0 6px 18px rgba(27,122,75,.28)}
-  .btn-gold{background:var(--gold);color:#fff;box-shadow:0 6px 18px rgba(176,130,26,.3)}
-  .btn-ghost{background:transparent;color:var(--muted);border:1.5px solid var(--line);font-weight:600;font-size:15px}
+  .btn-gold{background:linear-gradient(135deg,#C8942A 0%,#B0821A 55%,#9A6F12 100%);color:#fff;
+    font-size:19px;padding:23px 22px;letter-spacing:.01em;
+    box-shadow:0 8px 22px rgba(176,130,26,.42), inset 0 1px 0 rgba(255,255,255,.28);
+    animation:pulsa 2.1s ease-in-out infinite}
+  .btn-gold:hover{animation-play-state:paused;filter:brightness(1.06)}
+  @keyframes pulsa{
+    0%,100%{transform:scale(1);box-shadow:0 8px 22px rgba(176,130,26,.42), inset 0 1px 0 rgba(255,255,255,.28)}
+    50%{transform:scale(1.028);box-shadow:0 12px 30px rgba(176,130,26,.55), inset 0 1px 0 rgba(255,255,255,.28)}}
+  @media (prefers-reduced-motion:reduce){.btn-gold{animation:none}}
+  .btn-ghost{background:var(--sand);color:#6B5426;border:1.5px solid var(--sand-dk);
+    font-weight:700;font-size:16px;box-shadow:0 2px 6px rgba(140,110,50,.12)}
+  .btn-ghost:hover{background:#E7D7B4}
   .btn-sub{font-size:13px;color:var(--muted);text-align:center;margin-top:10px}
   .dark .btn-sub{color:rgba(255,255,255,.6)}
 
@@ -105,7 +117,8 @@ fbq('track','PageView');
     font-size:14px;color:var(--muted)}
 
   .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  .card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px}
+  .card{background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--gold);
+    border-radius:16px;padding:20px 20px 20px 18px}
   .card h3{margin-bottom:6px}
   .card p{font-size:14px;color:var(--muted);margin:0}
 
@@ -158,7 +171,8 @@ fbq('track','PageView');
 
   .plan{background:var(--paper);border:1.5px solid var(--line);border-radius:20px;
     padding:26px 22px;margin-bottom:22px;position:relative}
-  .plan.best{border-color:var(--gold);border-width:2.5px;box-shadow:0 12px 34px rgba(176,130,26,.16)}
+  .plan.best{border-color:var(--gold);border-width:3px;background:linear-gradient(180deg,#FFFDF6 0%,#FBF2DC 100%);
+    box-shadow:0 16px 40px rgba(176,130,26,.24)}
   .badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--gold);
     color:#fff;font-size:11.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
     padding:6px 16px;border-radius:99px;white-space:nowrap}
@@ -175,8 +189,8 @@ fbq('track','PageView');
   .pricebox s{display:block;color:var(--muted);font-size:15px}
   .pricebox .now{font-size:44px;font-weight:800;line-height:1.05;display:block}
   .pricebox .now small{font-size:18px;font-weight:700}
-  .nudge{background:var(--gold-bg);border:1px solid var(--gold-lt);border-radius:14px;
-    padding:14px 16px;text-align:center;font-size:14px;margin:-6px 0 22px}
+  .nudge{background:#FDF0D4;border:2px dashed var(--gold);border-radius:14px;
+    padding:16px 18px;text-align:center;font-size:15.5px;margin:-4px 0 24px;color:#6B5426}
 
   .guarantee{background:var(--gold-bg);border:1.5px solid var(--gold-lt);border-radius:20px;
     padding:28px 22px;text-align:center}
@@ -234,7 +248,7 @@ fbq('track','PageView');
 
     <img src="img/img-01.webp" alt="Separadores impresos sobre una Biblia abierta" loading="lazy" class="ph-img r11" style="margin:26px 0" />
 
-    <a href="#planes" class="btn btn-main">QUIERO MIS 73 SEPARADORES</a>
+    <a href="#planes" class="btn btn-gold">QUIERO MIS 73 SEPARADORES</a>
     <p class="btn-sub">Descarga inmediata · Imprime en casa · 30 días de garantía</p>
 
     <div class="proofrow">
@@ -493,7 +507,7 @@ fbq('track','PageView');
         <s>Antes $19,90</s>
         <span class="now"><small>US$</small> 6,90</span>
       </div>
-      <button class="btn btn-ghost" onclick="abrirUpsell()">Solo quiero los separadores</button>
+      <button class="btn btn-ghost" onclick="abrirUpsell()">Solo los 73 separadores · $6,90</button>
     </div>
 
     <div class="nudge">
@@ -502,7 +516,7 @@ fbq('track','PageView');
     </div>
 
     <div class="plan best">
-      <div class="badge">★ El más elegido</div>
+      <div class="badge">★ 9 de cada 10 eligen esta</div>
       <h3>Colección Completa</h3>
       <p class="sub">Todo lo del Básico + los 4 regalos.</p>
       <img src="img/img-15.webp" alt="Todo el paquete completo: separadores y los 4 regalos" loading="lazy" class="ph-img r169" style="margin-bottom:6px" />
@@ -519,7 +533,7 @@ fbq('track','PageView');
         <s>Valor real $75,50</s>
         <span class="now"><small>US$</small> 12,90</span>
       </div>
-      <a href="LINK_HOTMART_PREMIUM" class="btn btn-gold">Quiero la Colección Completa</a>
+      <a href="LINK_HOTMART_PREMIUM" class="btn btn-gold">QUIERO TODO POR $12,90</a>
       <p class="btn-sub">Pago seguro · Acceso inmediato · 30 días de garantía</p>
     </div>
   </div>
