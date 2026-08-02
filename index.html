@@ -652,15 +652,26 @@ fbq('track','PageView');
 
 
 <script>
-/* contador: se reinicia en CADA visita */
+/* Contador. Duas garantias:
+   1) reinicia a cada visita (nao fica salvo no navegador)
+   2) NUNCA chega a 00:00 — ao aproximar do fim ele volta para uma
+      nova janela. Contador parado em zero comunica "oferta expirada"
+      e derruba a conversao; e o erro classico dessas paginas. */
 (function(){
-  var total = 15*60, el = document.getElementById('clock');
-  setInterval(function(){
-    if(total<=0) return;
-    total--;
-    var m = Math.floor(total/60), s = total%60;
+  var el = document.getElementById('clock');
+  if(!el) return;
+  function novaJanela(){ return (12 + Math.floor(Math.random()*7)) * 60; }
+  var total = novaJanela();
+  function pinta(){
+    var m = Math.floor(total/60), s = total % 60;
     el.textContent = m + ':' + (s<10?'0':'') + s;
-  },1000);
+  }
+  pinta();
+  setInterval(function(){
+    total--;
+    if(total <= 5) total = novaJanela();
+    pinta();
+  }, 1000);
 })();
 
 /* pop-up */
