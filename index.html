@@ -113,6 +113,18 @@ fbq('track','PageView');
   .dark .btn-sub{color:rgba(255,255,255,.6)}
 
   .stars{color:#E8A317;letter-spacing:2px;font-size:18px}
+
+  /* testimonios: capturas reales de conversaciones */
+  .testi-scroll{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+  .testi{background:var(--paper);border:1px solid var(--line);border-radius:16px;
+    overflow:hidden;box-shadow:0 6px 18px rgba(35,28,19,.08)}
+  .testi img{width:100%;height:auto;display:block}
+  @media (max-width:640px){
+    .testi-scroll{grid-auto-flow:column;grid-template-columns:none;
+      grid-auto-columns:80%;overflow-x:auto;scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;padding-bottom:10px}
+    .testi{scroll-snap-align:center}
+  }
   .proofrow{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:24px;
     font-size:14px;color:var(--muted)}
 
@@ -488,6 +500,30 @@ fbq('track','PageView');
 </section>
 
 
+<!-- 7b · TESTIMONIOS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:8px">
+      <div class="kicker">Lo que dicen quienes ya los tienen</div>
+      <h2>No somos solo nosotros</h2>
+      <p class="lead" style="margin-top:10px">
+        Personas reales que imprimieron sus separadores y volvieron a escribirnos.
+      </p>
+    </div>
+
+    <div class="testi-scroll">
+      <div class="testi"><img src="img/testi-1.jpg" alt="Mensaje de Mariana: ahora entiende mejor cada libro de la Biblia" loading="lazy" /></div>
+      <div class="testi"><img src="img/testi-2.jpg" alt="Mensaje de Valentina: imprimió los separadores y se los mostró a su grupo de oración" loading="lazy" /></div>
+      <div class="testi"><img src="img/testi-3.jpg" alt="Mensaje de Juan Carlos: el material le ayuda a entender más la Biblia" loading="lazy" /></div>
+    </div>
+
+    <div style="margin-top:26px;text-align:center">
+      <a href="#planes" class="btn btn-gold">QUIERO EL MÍO AHORA</a>
+    </div>
+  </div>
+</section>
+
+
 <!-- 8 · PLANES -->
 <section class="sec alt" id="planes">
   <div class="wrap">
@@ -672,9 +708,23 @@ fbq('track','PageView');
 
 
 <script>
+/* Sempre abrir no topo.
+   Os botoes CTA usam href="#planes"; ao clicar, a URL fica com #planes.
+   Se a pessoa recarrega, compartilha esse link ou o navegador guarda a
+   posicao, a pagina abriria no meio. Aqui forcamos: toda carga comeca no
+   topo. O clique nos botoes continua rolando suave ate a oferta. */
+(function(){
+  if('scrollRestoration' in history){ history.scrollRestoration = 'manual'; }
+  if(location.hash){
+    history.replaceState(null, '', location.pathname + location.search);
+  }
+  window.scrollTo(0, 0);
+  window.addEventListener('load', function(){ window.scrollTo(0, 0); });
+})();
+
 /* Contador. Duas garantias:
    1) reinicia a cada visita (nao fica salvo no navegador)
-   2) NUNCA chega a 00:00 — ao aproximar do fim ele volta para uma
+   2) NUNCA chega a 00:00: ao aproximar do fim ele volta para uma
       nova janela. Contador parado em zero comunica "oferta expirada"
       e derruba a conversao; e o erro classico dessas paginas. */
 (function(){
