@@ -106,9 +106,13 @@ fbq('track','PageView');
     0%,100%{transform:scale(1);box-shadow:0 8px 22px rgba(176,130,26,.42), inset 0 1px 0 rgba(255,255,255,.28)}
     50%{transform:scale(1.028);box-shadow:0 12px 30px rgba(176,130,26,.55), inset 0 1px 0 rgba(255,255,255,.28)}}
   @media (prefers-reduced-motion:reduce){.btn-gold{animation:none}}
-  .btn-ghost{background:var(--sand);color:#6B5426;border:1.5px solid var(--sand-dk);
-    font-weight:700;font-size:16px;box-shadow:0 2px 6px rgba(140,110,50,.12)}
-  .btn-ghost:hover{background:#E7D7B4}
+  /* Botón secundario (básico): claramente un botón, pero sin robar
+     protagonismo al dorado. Fondo blanco, borde grueso navy, texto navy,
+     y una flecha que deja claro que se puede tocar. */
+  .btn-ghost{background:#fff;color:var(--navy);border:2.5px solid var(--navy);
+    font-weight:800;font-size:16.5px;box-shadow:0 4px 12px rgba(27,42,71,.14)}
+  .btn-ghost:after{content:"  →";font-weight:800}
+  .btn-ghost:hover{background:var(--navy);color:#fff}
   .btn-sub{font-size:13px;color:var(--muted);text-align:center;margin-top:10px}
   .dark .btn-sub{color:rgba(255,255,255,.6)}
 
@@ -201,8 +205,10 @@ fbq('track','PageView');
   .pricebox s{display:block;color:var(--red);font-size:15px;font-weight:700}
   .pricebox .now{font-size:44px;font-weight:800;line-height:1.05;display:block}
   .pricebox .now small{font-size:18px;font-weight:700}
-  .nudge{background:#FDF0D4;border:2px dashed var(--gold);border-radius:14px;
-    padding:16px 18px;text-align:center;font-size:15.5px;margin:-4px 0 24px;color:#6B5426}
+  /* Aviso entre planes. Se rediseña como "cinta" con borde solo a la
+     izquierda para que NO parezca un botón (antes se confundía con el de $6,90). */
+  .nudge{background:#FDF0D4;border-left:5px solid var(--gold);border-radius:10px;
+    padding:14px 16px;text-align:left;font-size:15px;margin:14px 0 24px;color:#6B5426}
 
   .guarantee{background:var(--gold-bg);border:1.5px solid var(--gold-lt);border-radius:20px;
     padding:28px 22px;text-align:center}
@@ -277,7 +283,7 @@ fbq('track','PageView');
 </head>
 <body>
 
-<div class="topbar">⏳ Oferta de lanzamiento · termina en <b id="clock">15:00</b></div>
+<div class="topbar">⏳ Oferta de lanzamiento · termina en <b id="clock">25:00</b></div>
 
 
 <!-- 1 · HERO -->
@@ -318,12 +324,12 @@ fbq('track','PageView');
     <div class="compare">
       <div class="side">
         <div class="tag">Por delante</div>
-        <img src="img/img-02.jpg" alt="Frente del separador: arte sacra y nombre del libro" loading="lazy" class="ph-img" style="aspect-ratio:567/1281" />
+        <img src="img/img-02.webp" alt="Frente del separador: arte sacra y nombre del libro" loading="lazy" class="ph-img" style="aspect-ratio:567/1281" />
         <p>El nombre del libro y arte devocional. Lo que se ve al abrir la Biblia.</p>
       </div>
       <div class="side hl">
         <div class="tag">Por detrás</div>
-        <img src="img/img-03.jpg" alt="Reverso del separador: autor, época, tema y versículo clave" loading="lazy" class="ph-img" style="aspect-ratio:567/915" />
+        <img src="img/img-03.webp" alt="Reverso del separador: autor, época, tema y versículo clave" loading="lazy" class="ph-img" style="aspect-ratio:567/915" />
         <p><strong>Autor, época, de qué trata, versículo clave y qué buscar al leer.</strong></p>
       </div>
     </div>
@@ -349,10 +355,10 @@ fbq('track','PageView');
     </div>
 
     <div class="grid2">
-      <img src="img/img-04.jpg" alt="Hoja impresa con separadores del Pentateuco" loading="lazy" class="ph-img" style="aspect-ratio:900/490" />
-      <img src="img/img-05.jpg" alt="Hoja impresa con separadores de los Evangelios" loading="lazy" class="ph-img" style="aspect-ratio:900/493" />
+      <img src="img/img-04.webp" alt="Hoja impresa con separadores del Pentateuco" loading="lazy" class="ph-img" style="aspect-ratio:900/490" />
+      <img src="img/img-05.webp" alt="Hoja impresa con separadores de los Evangelios" loading="lazy" class="ph-img" style="aspect-ratio:900/493" />
     </div>
-    <img src="img/img-06.jpg" alt="Hoja impresa con separadores de los Profetas" loading="lazy" class="ph-img" style="aspect-ratio:900/490;margin-top:14px" />
+    <img src="img/img-06.webp" alt="Hoja impresa con separadores de los Profetas" loading="lazy" class="ph-img" style="aspect-ratio:900/490;margin-top:14px" />
 
     <div style="margin-top:26px">
       <a href="#planes" class="btn btn-gold">QUIERO VER LA COLECCIÓN COMPLETA</a>
@@ -373,7 +379,7 @@ fbq('track','PageView');
       </p>
     </div>
 
-    <img src="img/img-08.jpg" alt="Los 7 bloques de la Biblia, con arte y cantidad de libros de cada uno" loading="lazy" class="ph-img" style="aspect-ratio:900/1376;max-width:420px;margin:20px auto 0;display:block" />
+    <img src="img/img-08.webp" alt="Los 7 bloques de la Biblia, con arte y cantidad de libros de cada uno" loading="lazy" class="ph-img" style="aspect-ratio:900/1376;max-width:420px;margin:20px auto 0;display:block" />
 
     <p class="lead center" style="margin-top:18px;font-size:15px">
       46 del Antiguo Testamento y 27 del Nuevo. <strong>Los deuterocanónicos
@@ -395,7 +401,7 @@ fbq('track','PageView');
       <h2>Listos en tres pasos</h2>
     </div>
 
-    <img src="img/img-09.jpg" alt="Secuencia de 3 pasos: imprimir, recortar y colocar el separador en la Biblia" loading="lazy" class="ph-img" style="aspect-ratio:700/1475;max-width:340px;margin:0 auto;display:block" />
+    <img src="img/img-09.webp" alt="Secuencia de 3 pasos: imprimir, recortar y colocar el separador en la Biblia" loading="lazy" class="ph-img" style="aspect-ratio:700/1475;max-width:340px;margin:0 auto;display:block" />
 
     <div style="margin-top:26px;text-align:center">
       <a href="#planes" class="btn btn-gold">SÍ, LOS QUIERO YA</a>
@@ -438,7 +444,7 @@ fbq('track','PageView');
     </div>
 
     <div class="bonus">
-      <div class="thumb"><img src="img/img-10.jpg" alt="Pestañas indexadoras de colores en el borde de una Biblia" loading="lazy" class="ph-img" style="aspect-ratio:3/4" /></div>
+      <div class="thumb"><img src="img/img-10.webp" alt="Pestañas indexadoras de colores en el borde de una Biblia" loading="lazy" class="ph-img" style="aspect-ratio:3/4" /></div>
       <div>
         <span class="tag">Regalo 1</span>
         <h3>Pestañas indexadoras de los 73 libros</h3>
@@ -449,7 +455,7 @@ fbq('track','PageView');
     </div>
 
     <div class="bonus">
-      <div class="thumb"><img src="img/img-11.jpg" alt="Línea del tiempo bíblica impresa, con hitos ilustrados" loading="lazy" class="ph-img" style="aspect-ratio:3/4" /></div>
+      <div class="thumb"><img src="img/img-11.webp" alt="Línea del tiempo bíblica impresa, con hitos ilustrados" loading="lazy" class="ph-img" style="aspect-ratio:3/4" /></div>
       <div>
         <span class="tag">Regalo 2</span>
         <h3>Línea del tiempo bíblica</h3>
@@ -460,7 +466,7 @@ fbq('track','PageView');
     </div>
 
     <div class="bonus">
-      <div class="thumb"><img src="img/img-12.jpg" alt="Guía de lectura bíblica, portada del ebook" loading="lazy" class="ph-img" style="aspect-ratio:3/4" /></div>
+      <div class="thumb"><img src="img/img-12.webp" alt="Guía de lectura bíblica, portada del ebook" loading="lazy" class="ph-img" style="aspect-ratio:3/4" /></div>
       <div>
         <span class="tag">Regalo 3</span>
         <h3>Guía: por dónde empezar a leer la Biblia</h3>
@@ -471,7 +477,7 @@ fbq('track','PageView');
     </div>
 
     <div class="bonus">
-      <div class="thumb"><img src="img/img-13.jpg" alt="Glosario de 100 términos bíblicos, portada del ebook" loading="lazy" class="ph-img" style="aspect-ratio:3/4" /></div>
+      <div class="thumb"><img src="img/img-13.webp" alt="Glosario de 100 términos bíblicos, portada del ebook" loading="lazy" class="ph-img" style="aspect-ratio:3/4" /></div>
       <div>
         <span class="tag">Regalo 4</span>
         <h3>Glosario de 100 términos bíblicos</h3>
@@ -500,30 +506,6 @@ fbq('track','PageView');
 </section>
 
 
-<!-- 7b · TESTIMONIOS -->
-<section class="sec">
-  <div class="wrap">
-    <div class="center" style="margin-bottom:8px">
-      <div class="kicker">Lo que dicen quienes ya los tienen</div>
-      <h2>No somos solo nosotros</h2>
-      <p class="lead" style="margin-top:10px">
-        Personas reales que imprimieron sus separadores y volvieron a escribirnos.
-      </p>
-    </div>
-
-    <div class="testi-scroll">
-      <div class="testi"><img src="img/testi-1.jpg" alt="Mensaje de Mariana: ahora entiende mejor cada libro de la Biblia" loading="lazy" /></div>
-      <div class="testi"><img src="img/testi-2.jpg" alt="Mensaje de Valentina: imprimió los separadores y se los mostró a su grupo de oración" loading="lazy" /></div>
-      <div class="testi"><img src="img/testi-3.jpg" alt="Mensaje de Juan Carlos: el material le ayuda a entender más la Biblia" loading="lazy" /></div>
-    </div>
-
-    <div style="margin-top:26px;text-align:center">
-      <a href="#planes" class="btn btn-gold">QUIERO EL MÍO AHORA</a>
-    </div>
-  </div>
-</section>
-
-
 <!-- 8 · PLANES -->
 <section class="sec alt" id="planes">
   <div class="wrap">
@@ -535,7 +517,7 @@ fbq('track','PageView');
     <div class="plan">
       <h3>Paquete Básico</h3>
       <p class="sub">Los 73 separadores. Sin regalos.</p>
-      <img src="img/img-14.jpg" alt="Solo el PDF de los 73 separadores, sin los regalos" loading="lazy" class="ph-img" style="aspect-ratio:800/985;margin-bottom:6px" />
+      <img src="img/img-14.webp" alt="Solo el PDF de los 73 separadores, sin los regalos" loading="lazy" class="ph-img" style="aspect-ratio:800/985;margin-bottom:6px" />
       <ul>
         <li>Los 73 separadores, uno por cada libro</li>
         <li>Frente con arte y reverso con la ficha del libro</li>
@@ -549,7 +531,7 @@ fbq('track','PageView');
         <s>Antes $19,90</s>
         <span class="now"><small>US$</small> 6,90</span>
       </div>
-      <button class="btn btn-ghost" onclick="abrirUpsell()">Solo los 73 separadores · $6,90</button>
+      <button class="btn btn-ghost" onclick="abrirUpsell()">Comprar solo los 73 · $6,90</button>
     </div>
 
     <div class="nudge">
@@ -561,7 +543,7 @@ fbq('track','PageView');
       <div class="badge">★ 9 de cada 10 eligen esta</div>
       <h3>Colección Completa</h3>
       <p class="sub">Todo lo del Básico + los 4 regalos.</p>
-      <img src="img/img-15.jpg" alt="Todo el paquete completo: separadores y los 4 regalos" loading="lazy" class="ph-img" style="aspect-ratio:1000/666;margin-bottom:6px" />
+      <img src="img/img-15.webp" alt="Todo el paquete completo: separadores y los 4 regalos" loading="lazy" class="ph-img" style="aspect-ratio:1000/666;margin-bottom:6px" />
       <ul>
         <li>Los 73 separadores, uno por cada libro</li>
         <li class="gift">Pestañas indexadoras de los 73 libros</li>
@@ -575,8 +557,32 @@ fbq('track','PageView');
         <s>Valor real $75,50</s>
         <span class="now"><small>US$</small> 12,90</span>
       </div>
-      <a href="LINK_HOTMART_PREMIUM" class="btn btn-gold">QUIERO TODO POR $12,90</a>
+      <a href="https://pay.hotmart.com/L107000209L?checkoutMode=10" class="btn btn-gold">QUIERO TODO POR $12,90</a>
       <p class="btn-sub">Pago seguro · Acceso inmediato · 7 días de garantía</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- 8b · TESTIMONIOS -->
+<section class="sec">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:8px">
+      <div class="kicker">Lo que dicen quienes ya los tienen</div>
+      <h2>No somos solo nosotros</h2>
+      <p class="lead" style="margin-top:10px">
+        Personas reales que imprimieron sus separadores y volvieron a escribirnos.
+      </p>
+    </div>
+
+    <div class="testi-scroll">
+      <div class="testi"><img src="img/testi-1.webp" alt="Mensaje de Mariana: ahora entiende mejor cada libro de la Biblia" loading="lazy" /></div>
+      <div class="testi"><img src="img/testi-2.webp" alt="Mensaje de Valentina: imprimió los separadores y se los mostró a su grupo de oración" loading="lazy" /></div>
+      <div class="testi"><img src="img/testi-3.webp" alt="Mensaje de Juan Carlos: el material le ayuda a entender más la Biblia" loading="lazy" /></div>
+    </div>
+
+    <div style="margin-top:26px;text-align:center">
+      <a href="#planes" class="btn btn-gold">QUIERO EL MÍO AHORA</a>
     </div>
   </div>
 </section>
@@ -587,7 +593,7 @@ fbq('track','PageView');
   <div class="wrap">
     <div class="guarantee">
       <div class="seal">
-        <img src="img/img-16.png" alt="Sello de garantía" loading="lazy" style="width:100%;display:block" />
+        <img src="img/img-16.webp" alt="Sello de garantía" loading="lazy" style="width:100%;display:block" />
         <div class="seal-text">
           <span class="n">7</span><span class="d">DÍAS</span><span class="g">DE GARANTÍA</span>
         </div>
@@ -700,9 +706,9 @@ fbq('track','PageView');
       <span class="now"><small>US$</small> 9,90</span>
     </div>
 
-    <a href="LINK_HOTMART_PREMIUM_DESCUENTO" class="btn btn-gold">Sí, quiero los 4 regalos</a>
+    <a href="https://pay.hotmart.com/D107000553P?off=vpaigcpe&checkoutMode=10" class="btn btn-gold">Sí, quiero los 4 regalos</a>
     <div style="height:10px"></div>
-    <a href="LINK_HOTMART_BASICO" class="btn btn-ghost">No, seguir con el básico a $6,90</a>
+    <a href="https://pay.hotmart.com/L107000209L?checkoutMode=10" class="btn btn-ghost">No, seguir con el básico a $6,90</a>
   </div>
 </div>
 
@@ -730,7 +736,7 @@ fbq('track','PageView');
 (function(){
   var el = document.getElementById('clock');
   if(!el) return;
-  function novaJanela(){ return (12 + Math.floor(Math.random()*7)) * 60; }
+  function novaJanela(){ return (24 + Math.floor(Math.random()*3)) * 60; }  /* 24–26 min: público mayor, menos apuro */
   var total = novaJanela();
   function pinta(){
     var m = Math.floor(total/60), s = total % 60;
