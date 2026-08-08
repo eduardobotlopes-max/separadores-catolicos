@@ -33,26 +33,44 @@ fbq('track','PageView');
     background:var(--cream);color:var(--ink);line-height:1.65;font-size:17.5px;-webkit-font-smoothing:antialiased}
   .wrap{max-width:560px;margin:0 auto;padding:0 20px}
   h1,h2{line-height:1.18;font-weight:800;letter-spacing:-.02em}
-  h1{font-size:26px}
+  h1{font-size:25px}
   p{margin-bottom:14px}
-  .sec{padding:40px 0 54px}
+  .sec{padding:36px 0 50px}
   .center{text-align:center}
   .gold{color:var(--gold)}
   .kicker{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
-  .lead{font-size:17px;color:var(--muted)}
+  .lead{font-size:16.5px;color:var(--muted)}
 
-  .plan{background:var(--paper);border:1.5px solid var(--gold);border-radius:20px;padding:24px 22px;margin:22px 0;
+  .ph{background:repeating-linear-gradient(45deg,#F4EFE3,#F4EFE3 12px,#EDE6D4 12px,#EDE6D4 24px);
+    border:2px dashed var(--gold);border-radius:14px;display:flex;align-items:center;
+    justify-content:center;text-align:center;padding:18px;color:#796A4B;
+    font-size:11.5px;font-weight:600;line-height:1.4}
+  .ph b{display:block;font-size:11px;letter-spacing:.08em;margin-bottom:5px;color:var(--gold)}
+
+  .plan{background:var(--paper);border:1.5px solid var(--gold);border-radius:20px;padding:22px 20px;margin:20px 0;
     box-shadow:0 12px 30px rgba(176,130,26,.16)}
-  .plan h2{font-size:19px;margin-bottom:10px;text-align:center}
-  .plan p.small{font-size:13.5px;color:var(--muted);text-align:center;margin-bottom:0}
+  .plan h2{font-size:18px;margin-bottom:8px;text-align:center}
+  .plan ul{list-style:none;margin:10px 0 0;text-align:left}
+  .plan li{font-size:14px;padding:7px 0 7px 26px;position:relative;border-bottom:1px solid var(--line)}
+  .plan li:last-child{border-bottom:none}
+  .plan li:before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800}
 
-  .pricebox{text-align:center;margin:22px 0 10px}
+  .testi-scroll{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}
+  .testi{background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 6px 18px rgba(35,28,19,.08)}
+  .testi img{width:100%;height:auto;display:block}
+  @media (max-width:560px){
+    .testi-scroll{grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:78%;
+      overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:8px}
+    .testi{scroll-snap-align:center}
+  }
+
+  .pricebox{text-align:center;margin:20px 0 10px}
   .pricebox s{display:block;color:var(--red);font-size:15px;font-weight:700}
   .pricebox .now{font-size:44px;font-weight:800;line-height:1.05;display:block;color:var(--green)}
   .pricebox .now small{font-size:18px;font-weight:700}
 
   .nudge{background:#FDF0D4;border-left:5px solid var(--gold);border-radius:10px;
-    padding:14px 16px;text-align:left;font-size:14.5px;margin:16px 0 24px;color:#6B5426}
+    padding:14px 16px;text-align:left;font-size:14px;margin:16px 0 22px;color:#6B5426}
 
   .btn{display:block;width:100%;text-align:center;text-decoration:none;padding:19px 22px;
     border-radius:14px;font-size:17px;font-weight:800;border:none;cursor:pointer;font-family:inherit}
@@ -69,15 +87,28 @@ fbq('track','PageView');
 <section class="sec">
   <div class="wrap center">
     <div class="kicker">Antes de continuar</div>
-    <h1>Entiendo, tal vez $7,90 no es el momento ahora.</h1>
-    <p class="lead" style="margin-top:14px">
-      Pero si igual quieres empezar con el pie derecho, te dejo la misma oferta
-      a un precio todavía más bajo — solo por esta vez.
+    <h1>Entiendo, tal vez $7,90 no era el momento.</h1>
+    <p class="lead" style="margin-top:12px">
+      Pero si igual quieres saber por dónde empezar a leer, sin adivinar,
+      te dejo la misma oferta a un precio todavía más bajo — solo por esta vez.
     </p>
+
+    <div class="ph" style="aspect-ratio:900/500;margin:18px 0">
+      <span><b>MOCKUP</b>Las páginas del plan abiertas junto a un separador, mostrando la casilla del día marcada</span>
+    </div>
 
     <div class="plan">
       <h2>Plan de Lectura Guiada de 90 Días</h2>
-      <p class="small">Los mismos 90 días, los mismos 7 bloques, el mismo certificado al final.</p>
+      <ul>
+        <li>Los mismos 90 días, los mismos 7 bloques</li>
+        <li>10-15 minutos de lectura al día, sin adivinar qué leer</li>
+        <li>Certificado de lectura imprimible al terminar</li>
+      </ul>
+    </div>
+
+    <div class="testi-scroll">
+      <div class="testi"><img src="img/testi-1.webp" alt="Testimonio de Mariana" loading="lazy" /></div>
+      <div class="testi"><img src="img/testi-2.webp" alt="Testimonio de Valentina" loading="lazy" /></div>
     </div>
 
     <div class="pricebox">

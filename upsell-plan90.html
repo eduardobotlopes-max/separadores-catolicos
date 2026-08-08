@@ -31,22 +31,36 @@ fbq('track','PageView');
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;
     background:var(--cream);color:var(--ink);line-height:1.65;font-size:17.5px;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:560px;margin:0 auto;padding:0 20px}
-  h1,h2{line-height:1.18;font-weight:800;letter-spacing:-.02em}
+  .wrap{max-width:600px;margin:0 auto;padding:0 20px}
+  h1,h2,h3{line-height:1.18;font-weight:800;letter-spacing:-.02em}
   h1{font-size:28px}
+  h2{font-size:22px}
   p{margin-bottom:14px}
-  .sec{padding:40px 0 54px}
+  .sec{padding:36px 0}
   .center{text-align:center}
   .gold{color:var(--gold)}
   .kicker{font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
-  .lead{font-size:17.5px;color:var(--muted)}
+  .lead{font-size:17px;color:var(--muted)}
 
-  .cover{background:var(--navy);border-radius:18px;padding:34px 24px;text-align:center;color:#fff;margin:22px 0}
+  .ph{background:repeating-linear-gradient(45deg,#F4EFE3,#F4EFE3 12px,#EDE6D4 12px,#EDE6D4 24px);
+    border:2px dashed var(--gold);border-radius:14px;display:flex;align-items:center;
+    justify-content:center;text-align:center;padding:20px;color:#796A4B;
+    font-size:12px;font-weight:600;line-height:1.45}
+  .ph b{display:block;font-size:11px;letter-spacing:.08em;margin-bottom:5px;color:var(--gold)}
+  .ph-img{width:100%;height:auto;display:block;border-radius:14px;object-fit:cover}
+
+  .cover{background:var(--navy);border-radius:18px;padding:30px 24px;text-align:center;color:#fff;margin:20px 0}
   .cover .tag{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#FFD86B;margin-bottom:10px}
-  .cover h2{font-size:22px;margin-bottom:6px}
-  .cover .big{font-size:44px;font-weight:800;color:var(--gold);margin:6px 0}
+  .cover h2{font-size:20px;margin-bottom:6px}
+  .cover .big{font-size:40px;font-weight:800;color:var(--gold);margin:4px 0}
 
-  .plan{background:var(--paper);border:1.5px solid var(--line);border-radius:20px;padding:24px 22px;margin:20px 0}
+  .step{display:flex;gap:14px;align-items:flex-start;margin-bottom:16px}
+  .stepnum{flex:0 0 34px;height:34px;border-radius:50%;background:var(--gold);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px}
+  .step .t{font-size:15px;font-weight:700;margin-bottom:2px}
+  .step .s{font-size:13.5px;color:var(--muted);margin:0}
+
+  .plan{background:var(--paper);border:1.5px solid var(--line);border-radius:20px;padding:22px 20px;margin:20px 0}
   .plan ul{list-style:none;margin:6px 0 0}
   .plan li{font-size:14.5px;padding:9px 0 9px 28px;position:relative;border-bottom:1px solid var(--line)}
   .plan li:last-child{border-bottom:none}
@@ -54,22 +68,47 @@ fbq('track','PageView');
   .plan li.gift:before{content:"🎁"}
   .plan li.shield:before{content:"🛡️"}
 
-  .pricebox{text-align:center;margin:22px 0 10px}
+  .stars{color:#E8A317;letter-spacing:2px;font-size:16px}
+  .proofrow{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:18px 0;font-size:13.5px;color:var(--muted)}
+
+  .testi-scroll{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}
+  .testi{background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 6px 18px rgba(35,28,19,.08)}
+  .testi img{width:100%;height:auto;display:block}
+  @media (max-width:560px){
+    .testi-scroll{grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:78%;
+      overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:8px}
+    .testi{scroll-snap-align:center}
+  }
+
+  .pricebox{text-align:center;margin:20px 0 10px}
   .pricebox s{display:block;color:var(--red);font-size:15px;font-weight:700}
   .pricebox .now{font-size:44px;font-weight:800;line-height:1.05;display:block}
   .pricebox .now small{font-size:18px;font-weight:700}
 
   .nudge{background:#FDF0D4;border-left:5px solid var(--gold);border-radius:10px;
-    padding:14px 16px;text-align:left;font-size:14.5px;margin:16px 0 24px;color:#6B5426}
+    padding:14px 16px;text-align:left;font-size:14px;margin:16px 0 22px;color:#6B5426}
 
   .btn{display:block;width:100%;text-align:center;text-decoration:none;padding:19px 22px;
-    border-radius:14px;font-size:17px;font-weight:800;border:none;cursor:pointer;font-family:inherit}
+    border-radius:14px;font-size:17px;font-weight:800;border:none;cursor:pointer;font-family:inherit;
+    transition:transform .12s ease}
+  .btn:active{transform:scale(.98)}
   .btn-gold{background:linear-gradient(135deg,#C8942A 0%,#B0821A 55%,#9A6F12 100%);color:#fff;
-    font-size:19px;padding:23px 22px;box-shadow:0 8px 22px rgba(176,130,26,.42), inset 0 1px 0 rgba(255,255,255,.28)}
+    font-size:19px;padding:23px 22px;box-shadow:0 8px 22px rgba(176,130,26,.42), inset 0 1px 0 rgba(255,255,255,.28);
+    animation:pulsa 2.1s ease-in-out infinite}
+  @keyframes pulsa{0%,100%{transform:scale(1)}50%{transform:scale(1.02)}}
+  @media (prefers-reduced-motion:reduce){.btn-gold{animation:none}}
   .btn-sub{font-size:13px;color:var(--muted);text-align:center;margin-top:10px}
   .decline{display:block;text-align:center;margin-top:22px;font-size:14px;color:var(--muted);text-decoration:underline}
 
-  @media (max-width:480px){ h1{font-size:24px} .cover .big{font-size:36px} .pricebox .now{font-size:36px} }
+  .faq{background:var(--paper);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;overflow:hidden}
+  .faq summary{padding:15px 18px;font-weight:700;font-size:14.5px;cursor:pointer;list-style:none;
+    display:flex;justify-content:space-between;gap:14px;align-items:center}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary:after{content:"+";color:var(--gold);font-size:20px;font-weight:800;flex:0 0 auto}
+  .faq[open] summary:after{content:"–"}
+  .faq p{padding:0 18px 16px;font-size:13.5px;color:var(--muted);margin:0}
+
+  @media (max-width:480px){ h1{font-size:24px} .cover .big{font-size:34px} .pricebox .now{font-size:36px} }
 </style>
 </head>
 <body>
@@ -77,20 +116,45 @@ fbq('track','PageView');
 <section class="sec">
   <div class="wrap center">
     <div class="kicker">Espera, tu pedido casi está completo</div>
-    <h1>Ya tienes tus 73 separadores.<br><span class="gold">Pero, ¿por dónde empiezas hoy?</span></h1>
-    <p class="lead" style="margin-top:14px">
-      La mayoría de las personas que reciben sus separadores me preguntan lo mismo.
-      Por eso preparé el Plan de Lectura Guiada de 90 Días.
+    <h1>Ya tienes tus 73 separadores.<br><span class="gold">¿Pero por dónde empiezas hoy?</span></h1>
+    <p class="lead" style="margin-top:12px">
+      Casi todos los que reciben sus separadores nos preguntan lo mismo la primera semana:
+      "los tengo listos, ¿pero qué leo primero?" Por eso preparamos el Plan de Lectura Guiada de 90 Días.
     </p>
+
+    <div class="ph" style="aspect-ratio:900/700;margin:20px 0">
+      <span><b>MOCKUP</b>Mano sosteniendo un celular/tablet mostrando la portada del PDF "90 días" junto a la Biblia con los separadores puestos</span>
+    </div>
 
     <div class="cover">
       <div class="tag">Complemento de tus separadores</div>
       <h2>Plan de Lectura Guiada</h2>
       <div class="big">90 días</div>
     </div>
+  </div>
+</section>
 
-    <div class="plan" style="text-align:left">
-      <p style="font-size:15px;color:var(--muted);margin-bottom:6px">Cada día te decimos exactamente qué separador abrir y qué leer. No tienes que decidir nada.</p>
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="center" style="margin-bottom:20px">
+      <div class="kicker">Así de simple</div>
+      <h2 style="font-size:19px">Tres pasos, cero decisiones</h2>
+    </div>
+
+    <div class="step">
+      <div class="stepnum">1</div>
+      <div><div class="t">Abres el PDF cada mañana</div><p class="s">Te decimos qué separador tomar hoy — nada que adivinar.</p></div>
+    </div>
+    <div class="step">
+      <div class="stepnum">2</div>
+      <div><div class="t">Lees 10-15 minutos</div><p class="s">Un pasaje corto y clave, no el libro entero.</p></div>
+    </div>
+    <div class="step">
+      <div class="stepnum">3</div>
+      <div><div class="t">Marcas la casilla</div><p class="s">Al final de cada bloque, un espacio para repasar lo que más te marcó.</p></div>
+    </div>
+
+    <div class="plan">
       <ul>
         <li>90 días organizados en los mismos 7 bloques de tus separadores</li>
         <li>Una lectura corta y clara por día, 10-15 minutos</li>
@@ -98,6 +162,17 @@ fbq('track','PageView');
         <li class="gift">Certificado de lectura imprimible al completar el plan</li>
         <li class="shield">Garantía de 7 días, igual que el resto de tu pedido</li>
       </ul>
+    </div>
+
+    <div class="proofrow">
+      <div><span class="stars">★★★★★</span></div>
+      <div>Mismo respaldo de tus 73 separadores</div>
+    </div>
+
+    <div class="testi-scroll">
+      <div class="testi"><img src="img/testi-1.webp" alt="Testimonio de Mariana" loading="lazy" /></div>
+      <div class="testi"><img src="img/testi-2.webp" alt="Testimonio de Valentina" loading="lazy" /></div>
+      <div class="testi"><img src="img/testi-3.webp" alt="Testimonio de Juan Carlos" loading="lazy" /></div>
     </div>
 
     <div class="pricebox">
@@ -113,6 +188,15 @@ fbq('track','PageView');
     <p class="btn-sub">Pago con un clic · Acceso inmediato · Garantía de 7 días</p>
 
     <a href="downsell-plan90.html" class="decline">No, gracias, continuar sin el plan</a>
+
+    <div style="margin-top:30px">
+      <details class="faq"><summary>¿Tengo que leer el libro entero cada día?</summary>
+      <p>No. Cada día trae una lectura corta y clave de 10-15 minutos, no el libro completo.</p></details>
+      <details class="faq"><summary>¿Sirve con el paquete Básico o solo con la Colección Completa?</summary>
+      <p>Sirve con cualquiera de los dos, siempre que tengas tus 73 separadores para seguir el orden.</p></details>
+      <details class="faq"><summary>¿Puedo empezar cualquier día?</summary>
+      <p>Sí, el plan no tiene fechas fijas. Empiezas el día 1 cuando tú quieras.</p></details>
+    </div>
   </div>
 </section>
 
