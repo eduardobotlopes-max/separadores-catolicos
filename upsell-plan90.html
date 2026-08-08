@@ -176,10 +176,14 @@ fbq('track','PageView');
       Esta oferta está vinculada a este pedido. No volverá a aparecer después.
     </div>
 
-    <a href="LINK_HOTMART_UPSELL_1490" class="btn btn-gold" onclick="if(window.fbq) fbq('trackCustom','UpsellPlan90Accept')">Sí, agregar el Plan de 90 Días por $14,90</a>
+    <!-- HOTMART - Sales Funnel Widget -->
+    <div id="hotmart-sales-funnel"></div>
+    <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
+    <script>
+    checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel')
+    </script>
+    <!-- HOTMART - Sales Funnel Widget -->
     <p class="btn-sub">Pago con un clic · Acceso inmediato · Garantía de 7 días</p>
-
-    <a href="downsell-plan90.html" class="decline">No, gracias, continuar sin el plan</a>
 
     <div style="margin-top:30px">
       <details class="faq"><summary>¿Tengo que leer el libro entero cada día?</summary>
